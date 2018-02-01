@@ -11,11 +11,12 @@ class PostListView extends Component {
     }
     render() {
         return (
-            <Grid columns={2}>
+            <Grid centered columns={3}>
+                <Grid.Row>
             {
                 this.props.posts ?
                 this.props.posts.map(post => (
-                    <Grid.Column key={post.id}>
+                    <Grid.Column centered key={post.id}>
                         <Card>
                             <Card.Content header={post.title} />
                             <Card.Content description={post.body} />
@@ -32,6 +33,7 @@ class PostListView extends Component {
                 ))
                 : null
             }
+            </Grid.Row>
             </Grid>
         )
     }
