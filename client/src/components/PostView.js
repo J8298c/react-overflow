@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchingAPost } from '../actions/post_actions';
-
+import { fetching_post_comments } from '../actions/comment_actions';
+import { Item, Button, Feed } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 class PostView extends Component {
     componentDidMount() {
-        console.log(this.props.match.params.id)
         const { id } = this.props.match.params;
         this.props.fetchingAPost(id);
+        this.props.fetching_post_comments(id);
     }
 
     render () {
-        console.log(this.props);
+        let elPost;
+        this.props.posts.post ? elPost = this.props.posts.post : null
         return (
             <div>
-                PostView
+                
             </div>
         )
     }
 }
 
-function mapStateToProps({post}) {
+function mapStateToProps({comments, posts}) {
+    console.log(posts)
     return {
-        post
+        comments,
+        posts
     }
 }
-export default connect(mapStateToProps, { fetchingAPost })(PostView);
+export default connect(mapStateToProps, { fetchingAPost, fetching_post_comments })(PostView);

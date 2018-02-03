@@ -1,6 +1,6 @@
 import { FETCH_ALL_POSTS, FETCH_A_POST } from '../actions/post_actions';
 
-const postReducers = (state = {}, action) => {
+const posts = (state = {}, action) => {
     switch(action.type) {
         case FETCH_ALL_POSTS:
             return Object.assign({}, state, { posts: action.posts})
@@ -11,4 +11,4 @@ const postReducers = (state = {}, action) => {
     }
 }
 
-export default postReducers;
+export default posts;

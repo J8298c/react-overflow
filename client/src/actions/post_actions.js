@@ -3,6 +3,8 @@ const headers =  {headers: { 'Authorization': 'whatever-you-want' }};
 export const FETCH_ALL_POSTS = 'FETCH_ALL_POSTS';
 export const FETCH_A_POST = 'FETCH_A_POST';
 
+
+
 export function fetchAllPosts(posts) {
     return {
         type: FETCH_ALL_POSTS,
@@ -54,3 +56,4 @@ export function fetchingAPost(id, dispatch) {
         .catch(error => { console.log(error)})
     }
 } 
+
