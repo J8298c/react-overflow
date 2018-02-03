@@ -1,6 +1,7 @@
 const headers =  {headers: { 'Authorization': 'whatever-you-want' }};
 
 export const FETCH_ALL_POSTS = 'FETCH_ALL_POSTS';
+export const FETCH_A_POST = 'FETCH_A_POST';
 
 export function fetchAllPosts(posts) {
     return {
@@ -37,3 +38,19 @@ export function voting_on_post(id, option, dispatch) {
       .catch(error => console.log(error));
     }
 }
+
+export function fetchAPost(post) {
+    return {
+        type: FETCH_A_POST,
+        post
+    }
+}
+
+export function fetchingAPost(id, dispatch) {
+    return dispatch => {
+        fetch(`http://localhost:3001/posts/${id}`, headers)
+        .then(response => response.json())
+        .then(post => dispatch(fetchAPost(post)))
+        .catch(error => { console.log(error)})
+    }
+} 

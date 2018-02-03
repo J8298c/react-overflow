@@ -24,7 +24,7 @@ class PostListView extends Component {
                 this.props.posts.map(post => (
                     <Grid.Column key={post.id}>
                        <Item>
-                           <Link to={`post/${post.id}`}>
+                           <Link to={`/${post.category}/${post.id}`}>
                            <Item.Header>{post.title}</Item.Header>
                            </Link>
                            <Item.Content>{post.body}</Item.Content>
