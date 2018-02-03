@@ -20,6 +20,8 @@ export function fetching_all_posts(dispatch) {
 }
 
 export function voting_on_post(id, option, dispatch) {
+    console.log(id);
+    console.log(option);
     return dispatch => {
         let vote = `${option}`
         fetch(`http://localhost:3001/posts/${id}`, {
@@ -31,7 +33,6 @@ export function voting_on_post(id, option, dispatch) {
            method: 'Post',
            body: JSON.stringify({option: vote})
       })
-      .then(response => response.json())
       .then(dispatch(fetching_all_posts()))
       .catch(error => console.log(error));
     }
