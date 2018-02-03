@@ -25,7 +25,9 @@ class HomePage extends Component {
 								<div key={post.id} style={homePageStyle.postContainer}>
 								<Post title={post.title} body={post.body} voteScore={post.voteScore} commentCount={post.commentCount}
 									timestamp={post.timestamp} onUpVote={() => { this.onVote(post.id, 'upVote')}}
-									onDownVote={() => { this.onVote(post.id, 'downVote')}} id={post.id}/>
+									onDownVote={() => { this.onVote(post.id, 'downVote')}} id={post.id}
+									urlLink={true} category={post.category} id={post.id}
+									/>
 								</div>
 							)
 						}

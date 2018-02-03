@@ -4,7 +4,14 @@ import { Link } from 'react-router-dom';
 
 const Post = (props) => (
 	<Item style={postStyles.containerStyle}>
+	{
+		props.urlLink ? 
+		<Link to={`/${props.category}/${props.id}`}>
+			<Item.Header style={postStyles.headerStyle}>{props.title}</Item.Header>
+		</Link>
+		:
 		<Item.Header style={postStyles.headerStyle}>{props.title}</Item.Header>
+	}
 		<Item.Description style={postStyles.bodyStyle}>{props.body}</Item.Description>
 		<Item.Meta style={postStyles.metaContainer}>
 			<p>Likes: {props.voteScore}</p>
