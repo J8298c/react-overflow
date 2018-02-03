@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "semantic-ui-css": "^2.2.14",
+    "semantic-ui-react": "^0.77.2"
+  }
+}

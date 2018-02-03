@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom'
 import store  from './store';
 import HomePage from './components/HomePage';
+import './App.css';
 
 class App extends Component {
   render() {
