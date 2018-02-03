@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Card } from 'semantic-ui-react';
+import { Grid, Item } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { fetching_all_posts } from '../actions/post_actions';
 
@@ -11,24 +11,20 @@ class PostListView extends Component {
     }
     render() {
         return (
-            <Grid centered columns={3}>
+            <Grid centered columns={2}>
                 <Grid.Row>
             {
                 this.props.posts ?
                 this.props.posts.map(post => (
                     <Grid.Column centered key={post.id}>
-                        <Card>
-                            <Card.Content header={post.title} />
-                            <Card.Content description={post.body} />
-                            <Grid.Column columns={2}>
-                            <Card.Meta>
-                                <p>{post.commentCount}</p>
-                            </Card.Meta>
-                            <Card.Meta>
-                                <p>{post.voteScore}</p>
-                            </Card.Meta>
-                            </Grid.Column>
-                        </Card>
+                       <Item>
+                           <Item.Header>{post.title}</Item.Header>
+                           <Item.Content>{post.body}</Item.Content>
+                           <Item.Extra>
+                               <Item.Content>Likes: {post.voteScore}</Item.Content>
+                               <Item.Content>Date: {post.timestamp}</Item.Content>
+                           </Item.Extra>
+                       </Item>
                     </Grid.Column>
                 ))
                 : null
