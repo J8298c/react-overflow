@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { Form, Button } from 'semantic-ui-react'; 
+import uuid from 'uuid';
+
 
 class CreatePost extends Component {
 	state = {
 
     }
-    
-	onSave() {
-		console.log(this.state);
-		//submit form then push user to category
-	}
+
+    onSubmit = () => {
+        const { title, author, body, category } = this.state;
+        const id = uuid();
+        const timestamp = Date.now();
+        const post = {id, title, author, body, timestamp, category};
+        this.props.addNewPost(post, 'post');
+    }
 
 	render() {
 		return (

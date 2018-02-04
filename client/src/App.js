@@ -7,6 +7,7 @@ import store  from './store';
 import HomePage from './components/HomePage';
 import './App.css';
 import PostHome from './components/PostHome';
+import MenuBar from './components/MenuBar';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <div>
+            <MenuBar />
             <Route exact path='/' component={HomePage} />
             <Route path='/:category/:id' component={PostHome} />
           </div>

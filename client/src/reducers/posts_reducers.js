@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, FETCH_A_POST  } from '../actions/post_actions';
+import { GET_ALL_POSTS, FETCH_A_POST, FETCH_CATEGORIES  } from '../actions/post_actions';
 
 export default (state = {}, action) => {
 	switch(action.type) {
@@ -8,6 +8,9 @@ export default (state = {}, action) => {
 		case FETCH_A_POST:
 			const { post } = action;
 			return Object.assign({}, state, { post: post})
+		case FETCH_CATEGORIES:
+			const { categories } = action;
+			return Object.assign({}, state, { categories: categories})
 		default:
 			return state
 	}

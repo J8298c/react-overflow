@@ -1,6 +1,6 @@
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const FETCH_A_POST = 'FETCH_A_POST';
-
+export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
 
 const headers =   {headers: { 'Authorization': 'whatever-you-want' }}
 
@@ -69,4 +69,21 @@ export function addNewPost(post) {
 		.then(json => {})
 		.catch(error => console.log(error))
 	  }
+}
+
+
+export function fetchCategories(categories) {
+	return {
+		type: FETCH_CATEGORIES,
+		categories
+	}
+}
+
+export function fetchingCategories(dispatch) {
+	return dispatch => {
+		fetch('http://localhost:3001/categories', headers)
+		.then(response => response.json())
+		.then(categories => dispatch(fetchCategories(categories)))
+		.catch(error => console.log(error))
+	}
 }
