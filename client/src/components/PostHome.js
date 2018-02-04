@@ -7,6 +7,7 @@ class PostHome extends Component {
     componentDidMount() {
         const { id } = this.props.match.params;
         this.props.fetchin_a_post(id)
+        console.log('why are you firing off')
     }
 
     onVote(id, option) {
@@ -34,7 +35,6 @@ class PostHome extends Component {
 
 function mapStateToProps({posts}) {
    const { post } = posts;
-   console.log(post)
    return {
    	post
    }

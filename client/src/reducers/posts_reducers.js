@@ -1,4 +1,4 @@
-import { GET_ALL_POSTS, FETCH_A_POST, FETCH_CATEGORIES  } from '../actions/post_actions';
+import { GET_ALL_POSTS, FETCH_A_POST, FETCH_CATEGORIES, IS_LOADING  } from '../actions/post_actions';
 
 export default (state = {}, action) => {
 	switch(action.type) {
@@ -10,7 +10,10 @@ export default (state = {}, action) => {
 			return Object.assign({}, state, { post: post})
 		case FETCH_CATEGORIES:
 			const { categories } = action;
-			return Object.assign({}, state, { categories: categories})
+			console.log(categories);
+			return Object.assign({}, state, { categories })
+		case IS_LOADING:
+			return Object.assign({}, state, {loading: action.boolean})
 		default:
 			return state
 	}

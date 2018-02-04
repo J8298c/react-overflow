@@ -1,6 +1,8 @@
 export const GET_ALL_POSTS = 'GET_ALL_POSTS';
 export const FETCH_A_POST = 'FETCH_A_POST';
 export const FETCH_CATEGORIES = 'FETCH_CATEGORIES';
+export const IS_LOADING = 'IS_LOADING';
+
 
 const headers =   {headers: { 'Authorization': 'whatever-you-want' }}
 
@@ -55,6 +57,7 @@ export function voting_on_post(id, option, dispatch) {
 }
 
 export function addNewPost(post) {
+	console.log('addNewPost')
 	return dispatch => {
 		fetch('http://localhost:3001/posts', {
 		  headers: {
@@ -66,7 +69,7 @@ export function addNewPost(post) {
 			 body: JSON.stringify(post)
 		})
 		.then(response => response.json())
-		.then(json => {})
+		.then(json => {console.log(json)})
 		.catch(error => console.log(error))
 	  }
 }
@@ -87,3 +90,11 @@ export function fetchingCategories(dispatch) {
 		.catch(error => console.log(error))
 	}
 }
+
+export function isLoading(boolean) {
+	return {
+		type: IS_LOADING,
+		boolean
+	}
+}
+

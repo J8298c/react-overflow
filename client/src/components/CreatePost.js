@@ -19,8 +19,8 @@ class CreatePost extends Component {
 	render() {
 		return (
 			  <div>
-                <h1 style={fontStyle}>Create a New Post</h1>
-                 <Form style={formStyle}>
+                <h1 style={styles.fontStyle}>Create a New Post</h1>
+                 <Form style={styles.formStyle}>
                     <Form.Input 
                         placeholder='Enter a Title' label='Post Title' 
                             onChange={(event) => { this.setState({ title: event.target.value})}}
@@ -39,10 +39,29 @@ class CreatePost extends Component {
                         <option  value="udacity">udaicty</option>
                     </select>
                 </Form>
-                <Form.Field onClick={ this.onSubmit} control={Button} style={buttonStyle}>Submit</Form.Field>
+                <Form.Field onClick={() => { this.onSubmit()} } control={Button} style={styles.buttonStyle}>Submit</Form.Field>
             </div>
 		)
 	}
 }
 
 export default CreatePost;
+const styles = {
+    fontStyle : { 
+        color: '#85f589',
+        textAlign: 'center'
+    },
+    formStyle : {
+        width: '75%',
+        margin: '0 auto',
+        color: '#ee82c3'
+    },
+    buttonStyle : {
+        margin: '24px auto',
+        display: 'block',
+        backgroundColor: '#85f589',
+        color: '#ee82c3'
+    }
+}
+
+

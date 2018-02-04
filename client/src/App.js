@@ -8,6 +8,7 @@ import HomePage from './components/HomePage';
 import './App.css';
 import PostHome from './components/PostHome';
 import MenuBar from './components/MenuBar';
+import CreatePost from './components/CreatePost';
 
 class App extends Component {
   render() {
@@ -17,7 +18,8 @@ class App extends Component {
           <div>
             <MenuBar />
             <Route exact path='/' component={HomePage} />
-            <Route path='/:category/:id' component={PostHome} />
+            <Route exact path='/posts/:category/:id' component={PostHome} />
+            <Route exact path='/posts/create' component={CreatePost} />
           </div>
         </BrowserRouter>
       </Provider>
