@@ -53,3 +53,20 @@ export function voting_on_post(id, option, dispatch) {
 
 	}
 }
+
+export function addNewPost(post) {
+	return dispatch => {
+		fetch('http://localhost:3001/posts', {
+		  headers: {
+				 'Authorization': 'whatever-you-want',
+				 'Accept': 'application/json',
+				 "Content-Type": "application/json",
+			 },
+			 method: 'Post',
+			 body: JSON.stringify(post)
+		})
+		.then(response => response.json())
+		.then(json => {})
+		.catch(error => console.log(error))
+	  }
+}
