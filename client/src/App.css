@@ -26,7 +26,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.post-container {
-  max-resolution: 45px;
-}
