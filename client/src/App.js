@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux';
-import thunk from 'redux-thunk';
 import HomePage from './components/HomePage';
+import store from './store';
 
-const store = createStore(() => {}, {}, applyMiddleware(thunk))
+
 
 class App extends Component {
   render() {
