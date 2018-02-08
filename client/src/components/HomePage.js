@@ -8,6 +8,11 @@ class HomePage extends Component {
     componentDidMount() {
        this.props.fetchAllPosts();
     }
+    onVote(id, options) {
+        console.log(options)
+        console.log(id);
+    }
+
     render() {
         if(this.props.post){
             console.log(this.props.post.posts)
@@ -19,7 +24,8 @@ class HomePage extends Component {
                         _.map(this.props.post.posts, post => (
                             <Post key={post.id} id={post.id} title={post.title}
                             commentCount={post.commentCount} voteScore={post.voteScore}
-                            category={post.category}
+                            category={post.category} onUpVote={() => { this.onVote(post.id, 'upVote')}}
+                            onDownVote={() => { this.onVote(post.id, 'downVote') }}
                             />
                         ))
                         :
