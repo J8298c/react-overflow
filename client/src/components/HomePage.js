@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as _ from 'lodash';
-import { fetchAllPosts } from '../actions/post_actions';
+import { fetchAllPosts, postVoting } from '../actions/post_actions';
 import Post from './Post';
 
 class HomePage extends Component {
@@ -11,6 +11,7 @@ class HomePage extends Component {
     onVote(id, options) {
         console.log(options)
         console.log(id);
+        this.props.postVoting(id, options)
     }
 
     render() {
@@ -43,4 +44,4 @@ function mapStateToProps({post}) {
     }
 }
 
-export default connect(mapStateToProps, { fetchAllPosts })(HomePage)
+export default connect(mapStateToProps, { fetchAllPosts, postVoting })(HomePage)
